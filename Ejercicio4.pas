@@ -53,14 +53,16 @@ type
         WriteLn('Ingresar apellido a buscar');
         ReadLn(ape);
         reset(arc_logico);
-        while not Eof(arc_logico) do begin
+        repeat
             read(arc_logico,per);
             if(per.nombre=nombre) and (per.apellido=ape)then begin
                 with per do
                     WriteLn(nro_emple:5,  DNI:5, nombre:5, edad:5, apellido:5); 
             end;
-        end;
+        until (not Eof(arc_logico) and (per.nombre=nombre) and (per.apellido=ape));
     end;
+
+
     procedure Mayores70(var arc_logico:arch_persona);
     var
         per:persona;
@@ -100,7 +102,7 @@ type
         while not Eof(arc_logico) do begin
             Read(arc_logico,per);
             with per do
-            WriteLn(carga,' ',nombre,' ',apellido,' ',nro_emple,' ',DNI,' ',edad);
+            WriteLn(carga,' ',DNI,' ',edad,' ',nro_emple,' ',nombre,' ',apellido);
         end;
         Close(carga)
     end;
@@ -122,6 +124,31 @@ type
         end;
         Close(carga)
     end;
+    Procedure actualizar (Var Emp:arch_persona);
+    var 
+        E: persona;
+        FIN:boolean
+        nro:Integer;
+        nueva_edad:Integer;
+    begin
+        FIN:True;
+        Reset( Emp );
+        WriteLn('Ingresar nro de empleado al que desea modificar la edad');
+        ReadLn(nro);
+        WriteLn('Ingresar la nueva edad');
+        ReadLn(nueva_edad);
+        while not eof( Emp ) and (FIN) do begin
+            Read( Emp, E);
+            if(e.nro_emple = nro)then begin
+              e.edad:=nueva_edad;
+              FIN:=False;
+              Seek( Emp, filepos(Emp) -1 );
+              Write( Emp, E );
+            end;
+            
+        end;
+        close( Emp );
+end;
 var
     per:persona;
     arc_fisico:String;
@@ -146,12 +173,10 @@ begin
             1:
             begin
                 ImprimirArc(arc_logico);
-                WriteLn('//////////////////////////////////////');
             end;
             2:
             begin
                 EncontrarNyA(arc_logico);
-                WriteLn('//////////////////////////////////////');
             end;
             3:
             begin
@@ -168,6 +193,10 @@ begin
             6:
             begin
                 filtrarEmpleados(arc_logico,carga);
+            end;
+            7:
+            begin
+                actualizar(arc_logico);
             end;
         end;
     until (opcion=0);
