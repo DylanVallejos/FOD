@@ -32,7 +32,7 @@ type
       WriteLn('ingresar nombrede la novela');
       ReadLn(nov.nombre_novela);
     end;
-    procedure cargar_novelas(var arc_logico:arch_novelas;var carga:Text);
+    procedure cargar_novelas(var arc_logico:arch_novelas ;var carga:Text);
     var
     nov:novelas;
     nom_Arch:String;
@@ -42,8 +42,8 @@ type
         Assign(carga,nom_Arch);
         reset(carga);
         while not Eof(carga) do begin
-           with votos do ReadLn(carga, cod_novela, precio, genero, nombre_novela);
-           Write(arc_logico,votos);
+           with nov do ReadLn(carga, cod_novela, precio, genero, nombre_novela);
+           Write(arc_logico,nov);
         end;
         close(arc_logico); Close(carga);
     end;
