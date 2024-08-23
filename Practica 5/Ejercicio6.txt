@@ -1,0 +1,11 @@
+Explique brevemente cómo funcionan las siguientes técnicas de resolución de
+desbordes que se pueden utilizar en hashing estático
+
+● Saturación progresiva
+    Cuando se completa el nodo, se busca el próximo hasta encontrar uno libre.
+● Saturación progresiva encadenada
+    Similar a saturación progresiva, pero los reg. de saturación se encadenan y “no ocupan”
+● Saturación progresiva encadenada con área de desborde separada
+    No utiliza nodos de direcciones para los overflow, estos van a nodos especiales​
+● Dispersión doble
+    saturación tiende a agrupar en zonas contiguas, búsquedas largas cuando la densidad tiende a uno​

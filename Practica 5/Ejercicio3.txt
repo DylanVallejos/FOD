@@ -1,0 +1,14 @@
+Explique los conceptos de sinónimo, colisión y desborde (overflow). ¿Qué condición es
+necesaria en el archivo directo para que pueda ocurrir una colisión y no un desborde?
+
+    Rta:
+     Colision:Situación en la que un registro es asignado, por función de dispersión, 
+                a una dirección que ya posee uno o más registros.
+    desborde:Situación en la cual una clave carece de lugar en la 
+            dirección asignada por la función de dispersión.
+    La condicion que tendria que existir papra que exista una colision y no un desborde es que
+    en el nodo que se quiera insetar un registro tenga al menos 1 o mas registros almacenados pero
+    que no este lleno el nodo.
+
+
+

@@ -1,0 +1,2 @@
+2. Explique el concepto de función de dispersión. Enumere al menos tres funciones de
+dispersión y explique brevemente cómo funciona cada una.

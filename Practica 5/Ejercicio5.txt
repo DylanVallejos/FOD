@@ -1,0 +1,7 @@
+Explique brevemente qué es la densidad de empaquetamiento. ¿Cuáles son las
+consecuencias de tener una menor densidad de empaquetamiento en un archivo
+directo?
+        Rta:Proporción de espacio del archivo asignado que en realidad almacena registros​.
+        Densidad de empaquetamiento menor​
+            Menos overflow ​
+            Más desperdicio de espacio​
